@@ -17,10 +17,10 @@ export class CompliancePage {
             <div class="compliance-hero-content-premium">
               <div class="hero-badge-premium">
                 <span class="badge-icon">🛡️</span>
-                <span>Compliance Excellence</span>
+                <span>East African Compliance Excellence</span>
               </div>
               <h1 class="compliance-hero-title-premium">Stay Ahead of Regulatory Requirements</h1>
-              <p class="compliance-hero-subtitle-premium">Comprehensive compliance solutions to keep your business protected, compliant, and competitive in today's complex regulatory environment.</p>
+              <p class="compliance-hero-subtitle-premium">Comprehensive compliance solutions tailored for East African markets to keep your business protected, compliant, and competitive across multiple jurisdictions.</p>
               
               <div class="compliance-hero-stats-premium">
                 <div class="stat-item-premium">

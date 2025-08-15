@@ -123,19 +123,12 @@ p {
 }
 
 .logo:hover {
-  color: var(--primary-blue-light);
-}
-
-.logo-icon {
   width: 32px;
   height: 32px;
   background: var(--gradient-primary);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-weight: 600;
+  width: 2.5rem;
+  height: 2.5rem;
+  transform: scale(1.05);
 }
 
 .nav-menu {

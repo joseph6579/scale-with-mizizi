@@ -25,7 +25,7 @@ export class ServicesPage {
               <div class="services-hero-stats-premium">
                 <div class="stat-item-premium">
                   <div class="stat-number-premium">15+</div>
-                  <div class="stat-label-premium">Service Areas</div>
+                  <div class="stat-label-premium">Countries Served</div>
                 </div>
                 <div class="stat-divider-premium"></div>
                 <div class="stat-item-premium">

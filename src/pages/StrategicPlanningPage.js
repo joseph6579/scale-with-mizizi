@@ -429,11 +429,11 @@ export class StrategicPlanningPage {
                 </div>
                 
                 <div class="success-quote">
-                  <blockquote>"Apex Financial's strategic planning transformed our entire financial operation. The results exceeded our most optimistic projections."</blockquote>
+                  <blockquote>"Scale With Mizizi's strategic planning transformed our entire financial operation across our East African subsidiaries. The results exceeded our most optimistic projections."</blockquote>
                   <div class="quote-author">
                     <div class="author-info">
-                      <div class="author-name">Sarah Mitchell</div>
-                      <div class="author-title">CFO, Global Manufacturing Corp</div>
+                      <div class="author-name">James Mwangi</div>
+                      <div class="author-title">CFO, East Africa Manufacturing Group</div>
                     </div>
                   </div>
                 </div>
