@@ -25,7 +25,7 @@ export class AssessmentPage {
         <section class="section bg-primary text-white">
           <div class="container text-center">
             <h1 class="text-white">Compliance Readiness Assessment</h1>
-            <p class="text-large">Evaluate your business compliance and identify opportunities for improvement</p>
+            <p class="text-large">Evaluate your business compliance across East African and international standards</p>
           </div>
         </section>
 

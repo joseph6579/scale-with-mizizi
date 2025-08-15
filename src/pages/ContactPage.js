@@ -93,7 +93,7 @@ export class ContactPage {
                     <input type="checkbox" name="consent" id="consent" class="modern-checkbox" required>
                     <label for="consent" class="checkbox-label">
                       <span class="checkbox-custom"></span>
-                      I consent to being contacted by Apex Financial Consultancy regarding my inquiry and understand that my information will be kept confidential.
+                      I consent to being contacted by Scale With Mizizi regarding my inquiry and understand that my information will be kept confidential.
                     </label>
                   </div>
                   
@@ -128,7 +128,7 @@ export class ContactPage {
                     </div>
                     <div class="contact-details">
                       <h4>Email</h4>
-                      <p>info@apexfinancial.com</p>
+                      <p>info@scalewithmizizi.com</p>
                       <span class="contact-note">Response within 24 hours</span>
                     </div>
                   </div>
@@ -141,8 +141,8 @@ export class ContactPage {
                     </div>
                     <div class="contact-details">
                       <h4>Phone</h4>
-                      <p>+1 (555) 123-4567</p>
-                      <span class="contact-note">Mon-Fri, 9AM-6PM EST</span>
+                      <p>+254 (0) 700 123 456</p>
+                      <span class="contact-note">Mon-Fri, 8AM-6PM EAT</span>
                     </div>
                   </div>
                   
@@ -155,7 +155,7 @@ export class ContactPage {
                     </div>
                     <div class="contact-details">
                       <h4>Office</h4>
-                      <p>123 Financial District<br>New York, NY 10004</p>
+                      <p>Westlands Business District<br>Nairobi, Kenya</p>
                       <span class="contact-note">By appointment only</span>
                     </div>
                   </div>
@@ -169,7 +169,7 @@ export class ContactPage {
                     </div>
                     <div class="contact-details">
                       <h4>Emergency Support</h4>
-                      <p>+1 (555) 123-4568</p>
+                      <p>+254 (0) 700 123 457</p>
                       <span class="contact-note">24/7 for existing clients</span>
                     </div>
                   </div>
@@ -329,7 +329,7 @@ export class ContactPage {
         
         <div class="success-content">
           <h2>Message Sent Successfully!</h2>
-          <p class="success-subtitle">Thank you for reaching out to Apex Financial Consultancy</p>
+          <p class="success-subtitle">Thank you for reaching out to Scale With Mizizi</p>
           
           <div class="success-details">
             <div class="success-info">
@@ -339,7 +339,7 @@ export class ContactPage {
               </div>
               <div class="info-item">
                 <span class="info-label">Reference ID:</span>
-                <span class="info-value">#AF${Date.now().toString().slice(-6)}</span>
+                <span class="info-value">#SWM${Date.now().toString().slice(-6)}</span>
               </div>
               <div class="info-item">
                 <span class="info-label">Expected response:</span>

@@ -17,10 +17,10 @@ export class AboutPage {
             <div class="about-hero-content-premium">
               <div class="hero-badge-premium">
                 <span class="badge-icon">🏢</span>
-                <span>About Apex Financial</span>
+                <span>About Scale With Mizizi</span>
               </div>
-              <h1 class="about-hero-title-premium">Trusted Financial Excellence Since 2015</h1>
-              <p class="about-hero-subtitle-premium">We've grown from a boutique advisory firm to a leading provider of comprehensive financial solutions, helping businesses navigate complex regulatory landscapes while optimizing performance.</p>
+              <h1 class="about-hero-title-premium">Deep-Rooted Financial Excellence Since 2018</h1>
+              <p class="about-hero-subtitle-premium">Founded in Nairobi, we've grown from a boutique advisory firm to East Africa's leading provider of comprehensive financial solutions, helping businesses across the region navigate complex regulatory landscapes while optimizing performance.</p>
               
               <div class="about-hero-stats-premium">
                 <div class="stat-item-premium">
@@ -58,23 +58,23 @@ export class AboutPage {
                     <div class="story-year-premium">2015</div>
                     <div class="story-point-content-premium">
                       <h4>Foundation</h4>
-                      <p>Started as a boutique consultancy with a focus on compliance and strategic planning</p>
+                      <p>Founded in Nairobi with a vision to provide world-class financial advisory services to East African businesses</p>
                     </div>
                   </div>
                   
                   <div class="story-point-premium">
-                    <div class="story-year-premium">2018</div>
+                    <div class="story-year-premium">2020</div>
                     <div class="story-point-content-premium">
                       <h4>Expansion</h4>
-                      <p>Expanded services to include risk management and business advisory solutions</p>
+                      <p>Expanded across East Africa, serving clients in Kenya, Uganda, Tanzania, and Rwanda</p>
                     </div>
                   </div>
                   
                   <div class="story-point-premium">
-                    <div class="story-year-premium">2021</div>
+                    <div class="story-year-premium">2022</div>
                     <div class="story-point-content-premium">
                       <h4>Innovation</h4>
-                      <p>Launched advanced analytics and automated compliance monitoring systems</p>
+                      <p>Launched advanced analytics platform tailored for African regulatory environments</p>
                     </div>
                   </div>
                   
@@ -82,7 +82,7 @@ export class AboutPage {
                     <div class="story-year-premium">2025</div>
                     <div class="story-point-content-premium">
                       <h4>Leadership</h4>
-                      <p>Recognized as a leading financial consultancy with $2.5B+ in assets under advisory</p>
+                      <p>Recognized as East Africa's premier financial consultancy with KES 350B+ in assets under advisory</p>
                     </div>
                   </div>
                 </div>
@@ -94,22 +94,22 @@ export class AboutPage {
                     <h4>Growth Trajectory</h4>
                     <div class="visual-status-premium">
                       <div class="status-dot-premium"></div>
-                      <span>10-Year Journey</span>
+                      <span>7-Year Journey</span>
                     </div>
                   </div>
                   <div class="growth-chart-premium">
                     <div class="chart-bars-premium">
                       <div class="chart-bar-premium">
                         <div class="bar-fill-premium" style="height: 20%"></div>
-                        <div class="bar-label-premium">2015</div>
-                      </div>
-                      <div class="chart-bar-premium">
-                        <div class="bar-fill-premium" style="height: 40%"></div>
                         <div class="bar-label-premium">2018</div>
                       </div>
                       <div class="chart-bar-premium">
+                        <div class="bar-fill-premium" style="height: 40%"></div>
+                        <div class="bar-label-premium">2020</div>
+                      </div>
+                      <div class="chart-bar-premium">
                         <div class="bar-fill-premium" style="height: 70%"></div>
-                        <div class="bar-label-premium">2021</div>
+                        <div class="bar-label-premium">2022</div>
                       </div>
                       <div class="chart-bar-premium">
                         <div class="bar-fill-premium" style="height: 100%"></div>
@@ -303,7 +303,7 @@ export class AboutPage {
             <div class="cta-content-premium">
               <div class="cta-header-premium">
                 <h2>Ready to Work with the Best?</h2>
-                <p>Join hundreds of satisfied clients who trust Apex Financial with their most important financial decisions and regulatory compliance needs.</p>
+                <p>Join hundreds of satisfied clients across East Africa who trust Scale With Mizizi with their most important financial decisions and regulatory compliance needs.</p>
               </div>
               
               <div class="cta-options-premium">

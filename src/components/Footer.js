@@ -4,8 +4,8 @@ export function createFooter() {
       <div class="container">
         <div class="footer-content">
           <div class="footer-section">
-            <h4>Apex Financial Consultancy</h4>
-            <p>Premier financial advisory services for businesses and individuals seeking expert guidance and strategic financial planning.</p>
+            <h4>Scale With Mizizi</h4>
+            <p>Premier financial advisory services based in Nairobi, Kenya, helping businesses across East Africa achieve sustainable growth through expert guidance and strategic financial planning.</p>
           </div>
           
           <div class="footer-section">
@@ -30,15 +30,15 @@ export function createFooter() {
           <div class="footer-section">
             <h4>Contact Info</h4>
             <ul class="footer-links">
-              <li>📧 info@apexfinancial.com</li>
-              <li>📞 +1 (555) 123-4567</li>
-              <li>📍 123 Financial District, NY</li>
+              <li>📧 info@scalewithmizizi.com</li>
+              <li>📞 +254 (0) 700 123 456</li>
+              <li>📍 Westlands, Nairobi, Kenya</li>
             </ul>
           </div>
         </div>
         
         <div class="footer-bottom">
-          <p>&copy; 2025 Apex Financial Consultancy. All rights reserved.</p>
+          <p>&copy; 2025 Scale With Mizizi. All rights reserved.</p>
         </div>
       </div>
     </footer>

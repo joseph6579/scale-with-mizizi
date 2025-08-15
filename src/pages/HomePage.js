@@ -183,7 +183,7 @@ export class HomePage {
                   <span>Why Choose Us</span>
                 </div>
                 <h2>Leading Businesses Trust Apex Financial</h2>
-                <p class="why-choose-description-premium">We don't just provide advice—we architect financial transformations. Our strategic approach combines deep industry expertise with cutting-edge analytics to deliver measurable outcomes.</p>
+                <p class="why-choose-description-premium">We don't just provide advice—we architect financial transformations. Based in the heart of East Africa's financial hub, our strategic approach combines deep regional expertise with global best practices to deliver measurable outcomes for businesses across Kenya and beyond.</p>
                 
                 <div class="value-points-premium">
                   <div class="value-point-premium">
@@ -312,11 +312,11 @@ export class HomePage {
                 </div>
                 
                 <div class="success-quote-premium">
-                  <blockquote>"Apex Financial transformed our entire compliance framework. Their expertise and strategic approach exceeded all expectations."</blockquote>
+                  <blockquote>"Scale With Mizizi transformed our entire compliance framework. Their deep understanding of both local and international requirements exceeded all expectations."</blockquote>
                   <div class="quote-author-premium">
                     <div class="author-info-premium">
-                      <div class="author-name-premium">Michael Chen</div>
-                      <div class="author-title-premium">CFO, TechCorp Global</div>
+                      <div class="author-name-premium">Sarah Wanjiku</div>
+                      <div class="author-title-premium">CFO, East Africa Logistics Ltd</div>
                     </div>
                   </div>
                 </div>
@@ -331,7 +331,7 @@ export class HomePage {
             <div class="cta-content-premium">
               <div class="cta-header-premium">
                 <h2>Ready to Transform Your Financial Strategy?</h2>
-                <p>Join hundreds of successful businesses that trust Apex Financial with their most important financial decisions and regulatory compliance needs.</p>
+                <p>Join hundreds of successful businesses across East Africa that trust Scale With Mizizi with their most important financial decisions and regulatory compliance needs.</p>
               </div>
               
               <div class="cta-options-premium">
