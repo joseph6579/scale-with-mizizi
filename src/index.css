@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: theme('colors.neutral.800');
+    background-color: theme('colors.white');
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 text-white hover:from-primary-700 hover:to-primary-800 focus:ring-primary-500 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white focus:ring-primary-500;
+  }
+  
+  .btn-outline-white {
+    @apply border-2 border-white text-white hover:bg-white hover:text-primary-600 focus:ring-white;
+  }
+  
+  .section-badge {
+    @apply inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-accent-100 to-accent-200 text-accent-800 rounded-full text-sm font-medium;
+  }
+  
+  .hero-badge {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-white/10 backdrop-blur-sm text-white rounded-full text-sm font-medium border border-white/20;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-neutral-200 p-6 transition-all duration-200 hover:shadow-xl;
+  }
+  
+  .gradient-bg {
+    @apply bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800;
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+}
