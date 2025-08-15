@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import HomePage from './pages/HomePage'
-import ServicesPage from './pages/ServicesPage'
-import AssessmentPage from './pages/AssessmentPage'
-import AboutPage from './pages/AboutPage'
-import ContactPage from './pages/ContactPage'
-import CompliancePage from './pages/CompliancePage'
-import StrategicPlanningPage from './pages/StrategicPlanningPage'
+import Header from './components/Header.tsx'
+import Footer from './components/Footer.tsx'
+import HomePage from './pages/HomePage.tsx'
+import ServicesPage from './pages/ServicesPage.tsx'
+import AssessmentPage from './pages/AssessmentPage.tsx'
+import AboutPage from './pages/AboutPage.tsx'
+import ContactPage from './pages/ContactPage.tsx'
+import CompliancePage from './pages/CompliancePage.tsx'
+import StrategicPlanningPage from './pages/StrategicPlanningPage.tsx'
 
 function App() {
   return (
