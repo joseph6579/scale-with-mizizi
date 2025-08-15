@@ -14,8 +14,8 @@
   body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
-    color: theme('colors.neutral.800');
-    background-color: theme('colors.white');
+    color: #1e293b;
+    background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
