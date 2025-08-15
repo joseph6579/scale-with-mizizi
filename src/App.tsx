@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage.js'
 import ServicesPage from './pages/ServicesPage.js'
 import { AssessmentPage } from './pages/AssessmentPage.js'
 import { AboutPage } from './pages/AboutPage.js'
-import ContactPage from './pages/ContactPage.js'
+import { ContactPage } from './pages/ContactPage.js'
 import { CompliancePage } from './pages/CompliancePage.js'
 import StrategicPlanningPage from './pages/StrategicPlanningPage.js'
 
