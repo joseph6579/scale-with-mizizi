@@ -6,7 +6,7 @@ import HomePage from './pages/HomePage.tsx'
 import ServicesPage from './pages/ServicesPage.js'
 import AssessmentPage from './pages/AssessmentPage.js'
 import AboutPage from './pages/AboutPage.js'
-import ContactPage from './pages/ContactPage.tsx'
+import ContactPage from './pages/ContactPage.js'
 import CompliancePage from './pages/CompliancePage.tsx'
 import StrategicPlanningPage from './pages/StrategicPlanningPage.tsx'
 
