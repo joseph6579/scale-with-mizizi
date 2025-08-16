@@ -93,10 +93,10 @@ const Header: React.FC = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`font-medium transition-all duration-200 px-4 py-2 rounded-lg relative ${
+                  className={`block px-4 py-3 font-medium transition-all duration-300 relative transform hover:scale-105 ${
                     location.pathname === link.path
-                        ? 'text-white bg-white/20 backdrop-blur-sm font-semibold border border-white/30' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm'
+                     ? 'text-accent-300 hover:text-accent-300 font-bold' 
+                     : 'text-white/90 hover:text-accent-300 hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -131,10 +131,10 @@ const Header: React.FC = () => {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={`block px-6 py-3 mx-4 rounded-lg font-medium transition-all duration-200 ${
+                    className={`block px-6 py-3 mx-4 font-medium transition-all duration-200 relative ${
                       location.pathname === link.path 
-                        ? 'text-white bg-white/20 backdrop-blur-sm font-semibold border border-white/30' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10'
+                        ? 'text-accent-300 font-bold' 
+                        : 'text-white/90 hover:text-white hover:bg-white/10 rounded-lg'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
