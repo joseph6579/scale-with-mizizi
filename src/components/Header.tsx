@@ -95,14 +95,11 @@ const Header: React.FC = () => {
                   to={link.path}
                   className={`block px-4 py-3 font-medium transition-all duration-300 relative transform hover:scale-105 ${
                     location.pathname === link.path
-                      ? 'text-white font-bold glow-text' 
+                      ? 'text-accent-400 font-bold' 
                       : 'text-white/90 hover:text-white hover:bg-white/15 hover:scale-105'
                   }`}
                 >
                   {link.label}
-                  {location.pathname === link.path && (
-                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
-                  )}
                 </Link>
               </li>
             ))}
@@ -136,15 +133,12 @@ const Header: React.FC = () => {
                     to={link.path}
                     className={`block px-6 py-3 mx-4 font-medium transition-all duration-200 relative ${
                       location.pathname === link.path 
-                        ? 'text-white font-bold glow-text' 
+                        ? 'text-accent-400 font-bold' 
                         : 'text-white/90 hover:text-white hover:bg-white/10 rounded-lg'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {link.label}
-                    {location.pathname === link.path && (
-                      <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
-                    )}
                   </Link>
                 </li>
               ))}
