@@ -12,7 +12,8 @@
   }
   
   body {
-    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    /* font-family: 'Manrope', system-ui, -apple-system, sans-serif; */
+    font-family: 'Manrope', 'Lora', -apple-system, sans-serif;
     line-height: 1.6;
     color: #1e293b;
     background-color: #ffffff;
