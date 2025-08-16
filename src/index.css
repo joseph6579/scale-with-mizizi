@@ -66,4 +66,36 @@
   .text-gradient {
     @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
   }
+  
+  .glow-text {
+    text-shadow: 
+      0 0 5px rgba(255, 255, 255, 0.8),
+      0 0 10px rgba(255, 255, 255, 0.6),
+      0 0 15px rgba(255, 255, 255, 0.4),
+      0 0 20px rgba(251, 191, 36, 0.6),
+      0 0 35px rgba(251, 191, 36, 0.4),
+      0 0 40px rgba(251, 191, 36, 0.2);
+    animation: glow-pulse 2s ease-in-out infinite alternate;
+  }
+  
+  @keyframes glow-pulse {
+    from {
+      text-shadow: 
+        0 0 5px rgba(255, 255, 255, 0.8),
+        0 0 10px rgba(255, 255, 255, 0.6),
+        0 0 15px rgba(255, 255, 255, 0.4),
+        0 0 20px rgba(251, 191, 36, 0.6),
+        0 0 35px rgba(251, 191, 36, 0.4),
+        0 0 40px rgba(251, 191, 36, 0.2);
+    }
+    to {
+      text-shadow: 
+        0 0 10px rgba(255, 255, 255, 1),
+        0 0 20px rgba(255, 255, 255, 0.8),
+        0 0 25px rgba(255, 255, 255, 0.6),
+        0 0 30px rgba(251, 191, 36, 0.8),
+        0 0 45px rgba(251, 191, 36, 0.6),
+        0 0 50px rgba(251, 191, 36, 0.4);
+    }
+  }
 }
