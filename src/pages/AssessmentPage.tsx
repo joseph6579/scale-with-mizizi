@@ -269,11 +269,11 @@ const AssessmentPage: React.FC = () => {
                   onChange={(e) => handleInputChange('annualRevenue', e.target.value)}
                 >
                   <option value="">Select Range</option>
-                  <option value="under-1m">Under $1M</option>
-                  <option value="1m-5m">$1M - $5M</option>
-                  <option value="5m-25m">$5M - $25M</option>
-                  <option value="25m-100m">$25M - $100M</option>
-                  <option value="over-100m">Over $100M</option>
+                  <option value="under-1m">Under KES 1M</option>
+                  <option value="1m-5m">KES 1M - KES 5M</option>
+                  <option value="5m-25m">KES 5M - KES 25M</option>
+                  <option value="25m-100m">KES 25M - KES 100M</option>
+                  <option value="over-100m">Over KES 100M</option>
                 </select>
                 {validationErrors.annualRevenue && (
                   <p className="text-red-500 text-sm mt-1">{validationErrors.annualRevenue}</p>
