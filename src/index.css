@@ -12,14 +12,18 @@
   }
   
   body {
-    /* font-family: 'Manrope', system-ui, -apple-system, sans-serif; */
-    font-family: 'Manrope', 'Lora', -apple-system, sans-serif;
+    font-family: 'Manrope', system-ui, -apple-system, sans-serif;
     line-height: 1.6;
     color: #1e293b;
     background-color: #ffffff;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  
+  h1, h2, h3, blockquote {
+  font-family: 'Lora', serif;
+  }
+  
 }
 
 @layer components {
