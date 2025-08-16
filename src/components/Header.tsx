@@ -4,35 +4,12 @@ import { Link, useLocation } from 'react-router-dom'
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isOverWhiteSection, setIsOverWhiteSection] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 100
       setIsScrolled(scrolled)
-      
-      // Check if we're over a white/light section
-      const sections = document.querySelectorAll('section')
-      let overWhite = false
-      
-      sections.forEach(section => {
-        const rect = section.getBoundingClientRect()
-        const headerHeight = 80
-        
-        if (rect.top <= headerHeight && rect.bottom >= headerHeight) {
-          const bgColor = window.getComputedStyle(section).backgroundColor
-          const hasLightBg = section.classList.contains('bg-neutral-50') || 
-                           section.classList.contains('bg-white') ||
-                           bgColor === 'rgb(248, 250, 252)' || // bg-neutral-50
-                           bgColor === 'rgb(255, 255, 255)'    // bg-white
-          if (hasLightBg) {
-            overWhite = true
-          }
-        }
-      })
-      
-      setIsOverWhiteSection(overWhite && !scrolled)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -51,10 +28,8 @@ const Header: React.FC = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
-        : isOverWhiteSection 
-          ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
-          : 'bg-transparent'
+        ? 'bg-primary-700/95 backdrop-blur-md shadow-lg' 
+        : 'bg-primary-600/90 backdrop-blur-sm'
     }`}>
       <div className="container">
         <nav className="flex items-center justify-between py-4">
@@ -107,9 +82,7 @@ const Header: React.FC = () => {
                 <circle cx="16" cy="16" r="15.5" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="0.5"/>
               </svg>
             </div>
-            <span className={`text-xl font-bold transition-colors ${
-              isScrolled || isOverWhiteSection ? 'text-neutral-800' : 'text-white'
-            }`}>
+            <span className="text-xl font-bold text-white transition-colors">
               Scale With Mizizi
             </span>
           </Link>
@@ -120,14 +93,10 @@ const Header: React.FC = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`font-medium transition-all duration-200 px-3 py-2 rounded-lg relative ${
+                  className={`font-medium transition-all duration-200 px-4 py-2 rounded-lg relative ${
                     location.pathname === link.path
-                      ? isScrolled || isOverWhiteSection
-                        ? 'text-primary-600 bg-primary-50 font-semibold' 
-                        : 'text-white bg-white/20 backdrop-blur-sm font-semibold'
-                      : isScrolled || isOverWhiteSection
-                      ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
-                      : 'text-white/90 hover:text-white hover:bg-white/10'
+                        ? 'text-white bg-white/20 backdrop-blur-sm font-semibold border border-white/30' 
+                        : 'text-white/90 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm'
                   }`}
                 >
                   {link.label}
@@ -135,7 +104,7 @@ const Header: React.FC = () => {
               </li>
             ))}
             <li>
-              <Link to="/assessment" className="btn btn-primary">
+              <Link to="/assessment" className="btn bg-accent-500 hover:bg-accent-600 text-white border-accent-500 hover:border-accent-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
                 Get Started
               </Link>
             </li>
@@ -143,7 +112,7 @@ const Header: React.FC = () => {
           
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 ${isScrolled || isOverWhiteSection ? 'text-neutral-800' : 'text-white'}`}
+            className="lg:hidden p-2 text-white hover:text-white/80 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -156,16 +125,16 @@ const Header: React.FC = () => {
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200 py-4 shadow-lg">
+          <div className="lg:hidden bg-primary-800/95 backdrop-blur-md border-t border-white/20 py-4 shadow-lg">
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={`block px-4 py-3 mx-4 rounded-lg font-medium transition-all duration-200 ${
+                    className={`block px-6 py-3 mx-4 rounded-lg font-medium transition-all duration-200 ${
                       location.pathname === link.path 
-                        ? 'text-primary-600 bg-primary-50 font-semibold' 
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                        ? 'text-white bg-white/20 backdrop-blur-sm font-semibold border border-white/30' 
+                        : 'text-white/90 hover:text-white hover:bg-white/10'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -176,7 +145,7 @@ const Header: React.FC = () => {
               <li className="px-4">
                 <Link
                   to="/assessment"
-                  className="btn btn-primary w-full"
+                  className="btn bg-accent-500 hover:bg-accent-600 text-white border-accent-500 hover:border-accent-600 w-full"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Get Started
