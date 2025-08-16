@@ -93,13 +93,19 @@ const Header: React.FC = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`font-medium transition-all duration-200 px-4 py-2 rounded-lg relative ${
+                  className={`block px-6 py-3 mx-4 rounded-lg font-medium transition-all duration-300 relative ${
                     location.pathname === link.path
-                        ? 'text-white bg-white/20 backdrop-blur-sm font-semibold border border-white/30' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10 hover:backdrop-blur-sm'
+                      ? 'text-primary-700 bg-white font-bold shadow-lg border-2 border-white transform scale-105' 
+                      : 'text-white/90 hover:text-white hover:bg-white/15 hover:scale-105'
                   }`}
                 >
                   {link.label}
+                  {location.pathname === link.path && (
+                    <div className="absolute right-3 top-1/2 transform -translate-y-1/2 w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
+                  )}
+                  {location.pathname === link.path && (
+                    <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-accent-400 rounded-full animate-pulse"></div>
+                  )}
                 </Link>
               </li>
             ))}
