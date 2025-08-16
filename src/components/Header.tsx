@@ -4,14 +4,39 @@ import { Link, useLocation } from 'react-router-dom'
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isOverWhiteSection, setIsOverWhiteSection] = useState(false)
   const location = useLocation()
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 100)
+      const scrolled = window.scrollY > 100
+      setIsScrolled(scrolled)
+      
+      // Check if we're over a white/light section
+      const sections = document.querySelectorAll('section')
+      let overWhite = false
+      
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect()
+        const headerHeight = 80
+        
+        if (rect.top <= headerHeight && rect.bottom >= headerHeight) {
+          const bgColor = window.getComputedStyle(section).backgroundColor
+          const hasLightBg = section.classList.contains('bg-neutral-50') || 
+                           section.classList.contains('bg-white') ||
+                           bgColor === 'rgb(248, 250, 252)' || // bg-neutral-50
+                           bgColor === 'rgb(255, 255, 255)'    // bg-white
+          if (hasLightBg) {
+            overWhite = true
+          }
+        }
+      })
+      
+      setIsOverWhiteSection(overWhite && !scrolled)
     }
 
     window.addEventListener('scroll', handleScroll)
+    handleScroll() // Check initial state
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -25,7 +50,11 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg' 
+        : isOverWhiteSection 
+          ? 'bg-white/90 backdrop-blur-sm shadow-sm' 
+          : 'bg-transparent'
     }`}>
       <div className="container">
         <nav className="flex items-center justify-between py-4">
@@ -79,7 +108,7 @@ const Header: React.FC = () => {
               </svg>
             </div>
             <span className={`text-xl font-bold transition-colors ${
-              isScrolled ? 'text-neutral-800' : 'text-white'
+              isScrolled || isOverWhiteSection ? 'text-neutral-800' : 'text-white'
             }`}>
               Scale With Mizizi
             </span>
@@ -93,10 +122,10 @@ const Header: React.FC = () => {
                   to={link.path}
                   className={`font-medium transition-all duration-200 px-3 py-2 rounded-lg relative ${
                     location.pathname === link.path
-                      ? isScrolled 
+                      ? isScrolled || isOverWhiteSection
                         ? 'text-primary-600 bg-primary-50 font-semibold' 
                         : 'text-white bg-white/20 backdrop-blur-sm font-semibold'
-                      : isScrolled
+                      : isScrolled || isOverWhiteSection
                       ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
                       : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
@@ -114,7 +143,7 @@ const Header: React.FC = () => {
           
           {/* Mobile Menu Button */}
           <button
-            className={`lg:hidden p-2 ${isScrolled ? 'text-neutral-800' : 'text-white'}`}
+            className={`lg:hidden p-2 ${isScrolled || isOverWhiteSection ? 'text-neutral-800' : 'text-white'}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
