@@ -95,8 +95,8 @@ const Header: React.FC = () => {
                   to={link.path}
                   className={`block px-4 py-3 font-medium transition-all duration-300 relative transform hover:scale-105 ${
                     location.pathname === link.path
-                      ? 'text-accent-400 font-bold' 
-                      : 'text-white/90 hover:text-white hover:bg-white/15 hover:scale-105'
+                     ? 'text-accent-300 font-bold hover:text-accent-300' 
+                     : 'text-white/90 hover:text-accent-300 hover:bg-white/10'
                   }`}
                 >
                   {link.label}
