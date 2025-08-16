@@ -91,12 +91,14 @@ const Header: React.FC = () => {
               <li key={link.path}>
                 <Link
                   to={link.path}
-                  className={`font-medium transition-colors hover:text-primary-600 ${
+                  className={`font-medium transition-all duration-200 px-3 py-2 rounded-lg relative ${
                     location.pathname === link.path
-                      ? 'text-primary-600'
+                      ? isScrolled 
+                        ? 'text-primary-600 bg-primary-50 font-semibold' 
+                        : 'text-white bg-white/20 backdrop-blur-sm font-semibold'
                       : isScrolled
-                      ? 'text-neutral-700'
-                      : 'text-white'
+                      ? 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
+                      : 'text-white/90 hover:text-white hover:bg-white/10'
                   }`}
                 >
                   {link.label}
@@ -125,14 +127,16 @@ const Header: React.FC = () => {
         
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-neutral-200 py-4">
+          <div className="lg:hidden bg-white/95 backdrop-blur-md border-t border-neutral-200 py-4 shadow-lg">
             <ul className="space-y-4">
               {navLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={`block px-4 py-2 font-medium transition-colors hover:text-primary-600 ${
-                      location.pathname === link.path ? 'text-primary-600' : 'text-neutral-700'
+                    className={`block px-4 py-3 mx-4 rounded-lg font-medium transition-all duration-200 ${
+                      location.pathname === link.path 
+                        ? 'text-primary-600 bg-primary-50 font-semibold' 
+                        : 'text-neutral-700 hover:text-primary-600 hover:bg-primary-50'
                     }`}
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
