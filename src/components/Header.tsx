@@ -8,153 +8,100 @@ const Header: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrolled = window.scrollY > 100
-      setIsScrolled(scrolled)
+      setIsScrolled(window.scrollY > 20)
     }
-
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Check initial state
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
-    { path: '/', label: 'Home' },
-    { path: '/services', label: 'Services' },
-    { path: '/assessment', label: 'Assessment' },
-    { path: '/about', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ]
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-primary-700/95 backdrop-blur-md shadow-lg' 
-        : 'bg-primary-600/90 backdrop-blur-sm'
-    }`}>
-      <div className="container">
-        <nav className="flex items-center justify-between py-4">
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 relative">
-              <svg width="40" height="40" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <linearGradient id="primaryGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor:'#1e40af', stopOpacity:1}} />
-                    <stop offset="50%" style={{stopColor:'#2563eb', stopOpacity:1}} />
-                    <stop offset="100%" style={{stopColor:'#3b82f6', stopOpacity:1}} />
-                  </linearGradient>
-                  
-                  <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style={{stopColor:'#f59e0b', stopOpacity:1}} />
-                    <stop offset="100%" style={{stopColor:'#d97706', stopOpacity:1}} />
-                  </linearGradient>
-                  
-                  <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feDropShadow dx="0" dy="1" stdDeviation="1" floodColor="#000000" floodOpacity="0.1"/>
-                  </filter>
-                </defs>
-                
-                <circle cx="16" cy="16" r="15.5" fill="url(#primaryGradient)" filter="url(#softShadow)"/>
-                <circle cx="16" cy="16" r="13" fill="none" stroke="rgba(255,255,255,0.1)" strokeWidth="0.5"/>
-                
-                <g transform="translate(16, 16)">
-                  <circle cx="0" cy="-6" r="2.5" fill="url(#accentGradient)"/>
-                  
-                  <g stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" fill="none">
-                    <path d="M0 -3 Q-4 2 -6 8 Q-7 10 -8 12" opacity="0.9"/>
-                    <path d="M0 -3 Q4 2 6 8 Q7 10 8 12" opacity="0.9"/>
-                    <path d="M0 -3 Q0 4 0 10" opacity="0.8"/>
-                    <path d="M-3 4 Q-5 6 -6 9" strokeWidth="1" opacity="0.7"/>
-                    <path d="M3 4 Q5 6 6 9" strokeWidth="1" opacity="0.7"/>
-                  </g>
-                  
-                  <g fill="url(#accentGradient)" opacity="0.8">
-                    <circle cx="-4" cy="-8" r="1"/>
-                    <circle cx="4" cy="-8" r="1"/>
-                    <circle cx="0" cy="-10" r="1.2"/>
-                  </g>
-                  
-                  <g stroke="rgba(255,255,255,0.6)" strokeWidth="1" strokeLinecap="round" fill="none" opacity="0.7">
-                    <path d="M-6 -4 L-4 -6 L-2 -4"/>
-                    <path d="M2 -4 L4 -6 L6 -4"/>
-                  </g>
-                </g>
-                
-                <circle cx="16" cy="16" r="15.5" fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth="0.5"/>
-              </svg>
-            </div>
-            <span className="text-xl font-bold text-white transition-colors">
-              Scale With Mizizi
-            </span>
-          </Link>
-          
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <Link
-                  to={link.path}
-                  className={`block px-4 py-3 font-medium transition-all duration-300 relative transform hover:scale-105 ${
-                    location.pathname === link.path
-                     ? 'text-accent-300 hover:text-accent-300 font-bold' 
-                     : 'text-white/90 hover:text-accent-300 hover:bg-white/10'
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-            <li>
-              <Link to="/assessment" className="btn bg-accent-500 hover:bg-accent-600 text-white border-accent-500 hover:border-accent-600 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
-                Get Started
-              </Link>
-            </li>
-          </ul>
-          
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-white hover:text-white/80 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="3" y1="6" x2="21" y2="6"/>
-              <line x1="3" y1="12" x2="21" y2="12"/>
-              <line x1="3" y1="18" x2="21" y2="18"/>
-            </svg>
-          </button>
-        </nav>
-        
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-primary-800/95 backdrop-blur-md border-t border-white/20 py-4 shadow-lg">
-            <ul className="space-y-4">
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className={`block px-6 py-3 mx-4 font-medium transition-all duration-200 relative ${
-                      location.pathname === link.path 
-                        ? 'text-accent-300 font-bold' 
-                        : 'text-white/90 hover:text-white hover:bg-white/10 rounded-lg'
-                    }`}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              <li className="px-4">
-                <Link
-                  to="/assessment"
-                  className="btn bg-accent-500 hover:bg-accent-600 text-white border-accent-500 hover:border-accent-600 w-full"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Started
-                </Link>
-              </li>
-            </ul>
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'py-4 glass-panel border-b-white/5' : 'py-8 bg-transparent'
+        }`}
+    >
+      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-10 h-10 bg-gradient-to-br from-accent-400 to-accent-600 rounded-lg flex items-center justify-center text-white font-serif font-bold text-2xl group-hover:scale-105 transition-transform duration-300 shadow-lg shadow-accent-500/20">
+            M
           </div>
-        )}
+          <div className="flex flex-col">
+            <span className="font-serif text-xl font-bold text-white tracking-wide">
+              MIZIZI
+            </span>
+            <span className="text-[0.65rem] uppercase tracking-[0.2em] text-accent-300">
+              Scale With Purpose
+            </span>
+          </div>
+        </Link>
+
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              to={link.path}
+              className={`text-sm font-sans tracking-wide transition-colors duration-300 hover:text-accent-400 ${location.pathname === link.path ? 'text-accent-400' : 'text-neutral-300'
+                }`}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Link
+            to="/assessment"
+            className="px-6 py-2 rounded-full border border-white/20 text-white text-sm hover:bg-white hover:text-primary-900 transition-all duration-300"
+          >
+            Free Assessment
+          </Link>
+        </nav>
+
+        {/* Mobile Toggle */}
+        <button
+          className="md:hidden text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-dark-bg/95 backdrop-blur-xl border-t border-white/10 p-6 md:hidden animate-fade-in">
+          <div className="flex flex-col gap-6">
+            {navLinks.map((link) => (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="text-lg text-white/80 hover:text-accent-400 font-serif"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            ))}
+            <Link
+              to="/assessment"
+              className="btn btn-primary w-full text-center"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Start Free Assessment
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   )
 }

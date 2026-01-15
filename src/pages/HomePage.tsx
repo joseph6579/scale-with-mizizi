@@ -1,274 +1,146 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const HomePage: React.FC = () => {
+  const heroRef = useRef<HTMLDivElement>(null)
+
+  const testimonials = [
+    {
+      name: "Sophia",
+      role: "Hello Metis",
+      text: "Scale With Mizizi transformed our financial chaos into clarity. For the first time, I feel like I'm truly in control of my future."
+    },
+    {
+      name: "Rhod and Audrey",
+      role: "Spicey O Foods",
+      text: "Their strategic insights helped us optimize our operations and scale faster than we ever imagined."
+    },
+    {
+      name: "Kelvin",
+      role: "Nourish Foods",
+      text: "A game-changer for our financial planning. The team's expertise is unmatched and the results speak for themselves."
+    },
+    {
+      name: "Nyambura",
+      role: "Strabox",
+      text: "Professional, insightful, and dedicated to our success. Mizizi is an invaluable partner for our growth."
+    },
+    {
+      name: "Mungai",
+      role: "Divine Sounds",
+      text: "With their help, we've built a solid financial foundation for sustainable growth. Highly recommended."
+    }
+  ]
+
+  const [currentTestimonial, setCurrentTestimonial] = useState(0)
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (heroRef.current) {
+        const scrolled = window.scrollY
+        heroRef.current.style.transform = `translateY(${scrolled * 0.5}px)`
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className="pt-20">
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center gradient-bg overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600/90 via-primary-700/90 to-primary-800/90"></div>
-        
-        <div className="container relative z-10">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <div className="hero-badge mb-8 animate-fade-in">
-              <span className="text-2xl">🏆</span>
-              <span>Premier Financial Excellence</span>
-            </div>
-            
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 animate-slide-up">
-              Transform Your Financial Future with Expert Guidance
-            </h1>
-            
-            <p className="text-xl md:text-2xl mb-12 text-white/90 max-w-3xl mx-auto animate-slide-up">
-              Navigate complex financial landscapes with confidence. Our expert consultants provide strategic guidance, compliance assessments, and tailored solutions that drive measurable business success.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-8 mb-16 animate-fade-in">
-              <div className="text-center">
-                <div className="text-4xl font-bold text-accent-400">500+</div>
-                <div className="text-white/80">Successful Projects</div>
-              </div>
-              <div className="w-px h-16 bg-white/20 hidden md:block"></div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-accent-400">$2.5B+</div>
-                <div className="text-white/80">Assets Optimized</div>
-              </div>
-              <div className="w-px h-16 bg-white/20 hidden md:block"></div>
-              <div className="text-center">
-                <div className="text-4xl font-bold text-accent-400">98%</div>
-                <div className="text-white/80">Client Satisfaction</div>
-              </div>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center animate-scale-in">
-              <Link to="/assessment" className="btn btn-primary text-lg px-8 py-4">
-                <span>Start Free Assessment</span>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </Link>
-              <Link to="/services" className="btn btn-outline-white text-lg px-8 py-4">
-                <span>Explore Services</span>
-              </Link>
-            </div>
+    <div className="overflow-x-hidden bg-dark-bg text-white selection:bg-accent-500/30">
+      {/* Cinematic Hero - Futuristic Gradient & Particles */}
+      <section className="relative h-screen min-h-[800px] flex items-center justify-center overflow-hidden">
+        {/* Background Layer */}
+        <div ref={heroRef} className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-b from-primary-950 via-dark-bg to-dark-bg z-10"></div>
+          {/* Futuristic Mesh Gradient */}
+          <div className="absolute top-[-50%] left-[-20%] w-[150%] h-[150%] bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-900/40 via-transparent to-transparent animate-pulse-slow"></div>
+
+          {/* Animated Orbs */}
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-600/10 rounded-full blur-[120px] animate-float"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-primary-600/10 rounded-full blur-[150px] animate-float" style={{ animationDelay: '2s' }}></div>
+
+          {/* Grid Overlay */}
+          <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:100px_100px] [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_80%)]"></div>
+        </div>
+
+        {/* Content */}
+        <div className="container relative z-20 text-center px-4">
+          <div className="hero-badge mx-auto backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_0_30px_rgba(212,175,55,0.1)]">
+            <span className="w-2 h-2 rounded-full bg-accent-400 animate-pulse"></span>
+            Financial Intelligence
           </div>
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif font-bold text-white mb-8 leading-tight tracking-tighter animate-slide-up mix-blend-overlay opacity-90">
+            FUTURE <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-accent-200 to-accent-500">READY.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-neutral-400 max-w-2xl mx-auto mb-12 animate-slide-up font-light tracking-wide" style={{ animationDelay: '0.2s' }}>
+            Transforming data into your most powerful competitive advantage.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-8 justify-center items-center animate-slide-up" style={{ animationDelay: '0.4s' }}>
+            <Link to="/contact" className="btn btn-primary group relative overflow-hidden px-10 py-4">
+              <span className="relative z-10">Initiate Strategy</span>
+              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+            </Link>
+          </div>
+        </div>
+
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-white/30 animate-pulse">
+          <span className="text-[10px] uppercase tracking-[0.3em]">Scroll</span>
+          <div className="w-px h-16 bg-gradient-to-b from-white/0 via-white/50 to-white/0"></div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-24 bg-neutral-50">
-        <div className="container">
-          <div className="text-center mb-16">
-            <div className="section-badge mb-6">
-              <span>Our Expertise</span>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Comprehensive Financial Solutions</h2>
-            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              We provide end-to-end financial consultancy services tailored to your unique business needs and growth objectives
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="card group hover:scale-105 transition-transform duration-300 relative overflow-hidden">
-              <div className="absolute top-4 right-4">
-                <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Most Popular
-                </span>
+      {/* Philosophy - Text Reveal Spotlight */}
+      <section className="py-40 relative bg-black">
+        <div className="container px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
+            <div className="relative">
+              <div className="absolute -left-10 -top-10 text-[10rem] font-serif text-white/5 font-bold leading-none select-none">
+                01
               </div>
-              <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mb-6">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                  <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
-                </svg>
+              <h2 className="text-4xl md:text-6xl font-serif font-bold mb-10 relative z-10 leading-tight">
+                Beyond the <br /><span className="text-accent-400 italic">Ledger.</span>
+              </h2>
+              <div className="space-y-8 text-lg text-neutral-400 border-l border-white/10 pl-8">
+                <p className="leading-relaxed">
+                  <strong className="text-white block mb-2">The Mizizi Algorithm:</strong>
+                  Traditional finance looks backward. We look forward. By integrating predictive analytics with strategic foresight, we turn your financial data into a roadmap for dominance.
+                </p>
+                <p className="leading-relaxed">
+                  <strong className="text-white block mb-2">Rooted in Data:</strong>
+                  Every decision is calculated. Every risk is quantified. We provide the architecture for sustainable, exponential growth.
+                </p>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Compliance Assessment</h3>
-              <p className="text-neutral-600 mb-6">
-                Comprehensive evaluation of your business compliance with government regulations and industry standards, ensuring full regulatory adherence.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Regulatory compliance review</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Risk assessment & mitigation</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Implementation roadmap</span>
-                </div>
-              </div>
-              <Link to="/assessment" className="btn btn-primary w-full group-hover:shadow-lg">
-                <span>Start Assessment</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 12L10 8L6 4"/>
-                </svg>
-              </Link>
             </div>
 
-            <div className="card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mb-6">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="white">
-                  <path d="M3 3V21H21V3H3ZM9 17H7V10H9V17ZM13 17H11V7H13V17ZM17 17H15V13H17V17Z"/>
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Strategic Planning</h3>
-              <p className="text-neutral-600 mb-6">
-                Data-driven financial strategies to optimize your business performance and achieve sustainable long-term growth.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Financial forecasting</span>
+            {/* Holographic Stat Cards */}
+            <div className="relative perspective-1000">
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-500/20 rounded-full blur-[100px] animate-pulse-slow"></div>
+              <div className="grid grid-cols-2 gap-6 relative z-10 transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-transform duration-700 ease-out">
+                <div className="glass-panel p-8 rounded-2xl border-t border-white/20">
+                  <div className="text-5xl font-mono text-accent-400 mb-2">100+</div>
+                  <div className="text-xs uppercase tracking-widest text-neutral-500">Enterprises Scaled</div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Growth strategy development</span>
+                <div className="glass-panel p-8 rounded-2xl border-t border-white/20 translate-y-12">
+                  <div className="text-5xl font-mono text-primary-400 mb-2">$50M</div>
+                  <div className="text-xs uppercase tracking-widest text-neutral-500">Capital Optimized</div>
                 </div>
-              </div>
-              <Link to="/strategic-planning" className="btn btn-outline w-full group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
-                <span>Learn More</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 12L10 8L6 4"/>
-                </svg>
-              </Link>
-            </div>
-
-            <div className="card group hover:scale-105 transition-transform duration-300">
-              <div className="w-16 h-16 bg-gradient-to-br from-neutral-600 to-neutral-700 rounded-xl flex items-center justify-center mb-6">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                  <path d="M12 2L2 7L12 12L22 7L12 2Z"/>
-                  <path d="M2 17L12 22L22 17"/>
-                  <path d="M2 12L12 17L22 12"/>
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Risk Management</h3>
-              <p className="text-neutral-600 mb-6">
-                Identify, assess, and mitigate financial risks to protect your business and ensure sustainable growth in volatile markets.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Risk identification & analysis</span>
+                <div className="glass-panel p-8 rounded-2xl border-t border-white/20">
+                  <div className="text-5xl font-mono text-white mb-2">24/7</div>
+                  <div className="text-xs uppercase tracking-widest text-neutral-500">System Uptime</div>
                 </div>
-                <div className="flex items-center gap-3">
-                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" className="text-primary-600">
-                    <path d="M13.5 4.5L6 12L2.5 8.5"/>
-                  </svg>
-                  <span className="text-sm">Mitigation strategies</span>
-                </div>
-              </div>
-              <Link to="/services" className="btn btn-outline w-full group-hover:bg-primary-600 group-hover:text-white group-hover:border-primary-600">
-                <span>Explore Services</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 12L10 8L6 4"/>
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Why Choose Us */}
-      <section className="py-24">
-        <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="section-badge mb-6">
-                <span>Why Choose Us</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Leading Businesses Trust Scale With Mizizi</h2>
-              <p className="text-xl text-neutral-600 mb-8">
-                We don't just provide advice—we architect financial transformations. Based in the heart of East Africa's financial hub, our strategic approach combines deep regional expertise with global best practices to deliver measurable outcomes for businesses across Kenya and beyond.
-              </p>
-              
-              <div className="space-y-6">
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                      <path d="M12 2L15.09 8.26L22 9L17 14L18.18 21L12 17.77L5.82 21L7 14L2 9L8.91 8.26L12 2Z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Expert Team</h4>
-                    <p className="text-neutral-600">Certified financial professionals with decades of combined experience in regulatory compliance and strategic planning.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                      <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Proven Results</h4>
-                    <p className="text-neutral-600">Track record of helping businesses achieve 100% compliance while optimizing their financial performance.</p>
-                  </div>
-                </div>
-                
-                <div className="flex gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-neutral-600 to-neutral-700 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                      <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                    </svg>
-                  </div>
-                  <div>
-                    <h4 className="text-xl font-bold mb-2">Tailored Solutions</h4>
-                    <p className="text-neutral-600">Customized approaches that align with your specific industry requirements and business objectives.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="card">
-              <div className="flex items-center justify-between mb-6">
-                <h4 className="text-xl font-bold">Client Success Metrics</h4>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                  <span className="text-sm text-neutral-600">Live Data</span>
-                </div>
-              </div>
-              <div className="space-y-6">
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">Compliance Rate</span>
-                    <span className="text-sm font-bold">100%</span>
-                  </div>
-                  <div className="w-full bg-neutral-200 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-primary-500 to-primary-600 h-2 rounded-full" style={{width: '100%'}}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">Client Retention</span>
-                    <span className="text-sm font-bold">98%</span>
-                  </div>
-                  <div className="w-full bg-neutral-200 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-accent-500 to-accent-600 h-2 rounded-full" style={{width: '98%'}}></div>
-                  </div>
-                </div>
-                <div>
-                  <div className="flex justify-between items-center mb-2">
-                    <span className="text-sm font-medium">ROI Improvement</span>
-                    <span className="text-sm font-bold">+85%</span>
-                  </div>
-                  <div className="w-full bg-neutral-200 rounded-full h-2">
-                    <div className="bg-gradient-to-r from-green-500 to-green-600 h-2 rounded-full" style={{width: '85%'}}></div>
-                  </div>
+                <div className="glass-panel p-8 rounded-2xl border-t border-white/20 translate-y-12">
+                  <div className="text-5xl font-mono text-accent-200 mb-2">98%</div>
+                  <div className="text-xs uppercase tracking-widest text-neutral-500">Client Retention</div>
                 </div>
               </div>
             </div>
@@ -276,134 +148,105 @@ const HomePage: React.FC = () => {
         </div>
       </section>
 
-      {/* Client Success Story */}
-      <section className="py-24 bg-neutral-50">
-        <div className="container">
-          <div className="card max-w-6xl mx-auto">
-            <div className="section-badge mb-6">
-              <span>Client Success</span>
-            </div>
-            <h2 className="text-4xl font-bold mb-6">Fortune 500 Transformation</h2>
-            <p className="text-xl text-neutral-600 mb-12">
-              A leading technology company was struggling with complex regulatory requirements across multiple jurisdictions. Our comprehensive approach delivered exceptional results within 6 months.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"/>
-                  </svg>
-                </div>
-                <div className="text-3xl font-bold text-primary-600 mb-2">100%</div>
-                <div className="text-neutral-600">Compliance Achievement</div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-accent-500 to-accent-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M22 12H18L15 21L9 3L6 12H2"/>
-                  </svg>
-                </div>
-                <div className="text-3xl font-bold text-accent-600 mb-2">$3.2M</div>
-                <div className="text-neutral-600">Cost Savings</div>
-              </div>
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
-                    <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z"/>
-                  </svg>
-                </div>
-                <div className="text-3xl font-bold text-green-600 mb-2">6 Months</div>
-                <div className="text-neutral-600">Implementation Time</div>
-              </div>
-            </div>
-            
-            <blockquote className="text-2xl italic text-center text-neutral-700 mb-8">
-              "Scale With Mizizi transformed our entire compliance framework. Their deep understanding of both local and international requirements exceeded all expectations."
-            </blockquote>
-            <div className="text-center">
-              <div className="font-bold text-lg">Sarah Wanjiku</div>
-              <div className="text-neutral-600">CFO, East Africa Logistics Ltd</div>
+      {/* Expertise - Hover Reveal List (No Grids) */}
+      <section className="py-40 relative overflow-hidden bg-dark-bg">
+        <div className="container px-6">
+          <div className="mb-20">
+            <div className="text-accent-500 font-mono text-sm mb-4">/// CAPABILITIES ///</div>
+            <h2 className="text-4xl md:text-5xl font-serif font-bold">System Architecture</h2>
+          </div>
+
+          <div className="relative">
+            <div className="space-y-4">
+              {[
+                { title: 'Outsourced CFO', subtitle: 'Strategic Leadership' },
+                { title: 'Virtual Bookkeeping', subtitle: 'Audit-Ready Data' },
+                { title: 'Tax Engineering', subtitle: 'Compliance & Optimization' },
+                { title: 'Career Coaching', subtitle: 'Academy Access' }
+              ].map((item, i) => (
+                <Link to="/services" key={i} className="block group relative border-b border-white/10 pb-8 hover:border-accent-500 transition-colors duration-500">
+                  <div className="flex items-end justify-between relative z-10">
+                    <div>
+                      <div className="text-accent-500 font-mono text-xs mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">/// MODULE 0{i + 1}</div>
+                      <h3 className="text-5xl md:text-8xl font-serif font-bold text-neutral-500 group-hover:text-white transition-colors duration-500">{item.title}</h3>
+                    </div>
+                    <div className="text-right hidden md:block">
+                      <div className="text-xl text-neutral-400 group-hover:text-accent-400 transition-colors">{item.subtitle}</div>
+                      <div className="text-sm uppercase tracking-widest text-white/20 mt-2 group-hover:text-white transition-colors">Explore →</div>
+                    </div>
+                  </div>
+                  {/* Background Glow on Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent-900/0 via-accent-900/0 to-accent-900/0 group-hover:via-accent-900/10 transition-all duration-700 pointer-events-none"></div>
+                </Link>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800"></div>
-        <div className="absolute inset-0 bg-black/10"></div>
-        
-        <div className="container relative z-10">
-          <div className="text-center text-white mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Transform Your Financial Strategy?</h2>
-            <p className="text-xl max-w-3xl mx-auto">
-              Join hundreds of successful businesses across East Africa that trust Scale With Mizizi with their most important financial decisions and regulatory compliance needs.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-2xl font-bold text-white">Free Assessment</h4>
-                <span className="bg-accent-500 text-white px-3 py-1 rounded-full text-sm font-medium">
-                  Recommended
-                </span>
-              </div>
-              <p className="text-white/90 mb-6">
-                Comprehensive evaluation of your current compliance status and financial position with detailed recommendations.
+      {/* Testimonials - Spotlight Slider */}
+      <section className="h-screen min-h-[800px] flex items-center justify-center bg-black relative border-t border-white/5">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/50 via-black to-black"></div>
+
+        <div className="container text-center relative z-10 px-4">
+          <div className="inline-block border border-white/10 px-4 py-1 rounded-full text-xs uppercase tracking-widest text-neutral-500 mb-12">Trust Protocol</div>
+
+          <div className="max-w-5xl mx-auto">
+            <div className="mb-12 min-h-[200px] flex flex-col justify-center">
+              <span className="text-accent-500 text-9xl font-serif leading-none opacity-30 select-none block h-16">"</span>
+              <p className="text-3xl md:text-5xl font-serif font-bold leading-tight -mt-8 relative z-10 transition-opacity duration-500">
+                {testimonials[currentTestimonial].text}
               </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>Detailed compliance report</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>Risk assessment analysis</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>Priority recommendations</span>
-                </div>
-              </div>
-              <Link to="/assessment" className="btn bg-white text-primary-600 hover:bg-neutral-100 w-full">
-                <span>Start Assessment</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 12L10 8L6 4"/>
-                </svg>
-              </Link>
             </div>
-            
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              <h4 className="text-2xl font-bold text-white mb-4">Schedule Consultation</h4>
-              <p className="text-white/90 mb-6">
-                Direct consultation with our senior financial experts to discuss your specific challenges and opportunities.
-              </p>
-              <div className="space-y-3 mb-8">
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>60-minute consultation</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>Personalized strategy</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/90">
-                  <span>✓</span>
-                  <span>Implementation roadmap</span>
-                </div>
+
+            <div className="flex flex-col items-center gap-6">
+              <div className="w-20 h-20 rounded-full bg-neutral-800 overflow-hidden border-2 border-accent-500 p-1">
+                <img
+                  src={`https://ui-avatars.com/api/?name=${encodeURIComponent(testimonials[currentTestimonial].name)}&background=1a1a1a&color=d4af37`}
+                  alt={testimonials[currentTestimonial].name}
+                  className="w-full h-full rounded-full object-cover"
+                />
               </div>
-              <Link to="/contact" className="btn btn-outline-white w-full">
-                <span>Contact Us</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M6 12L10 8L6 4"/>
-                </svg>
-              </Link>
+              <div className="transition-opacity duration-300">
+                <div className="text-2xl font-bold text-white">{testimonials[currentTestimonial].name}</div>
+                <div className="text-accent-500 uppercase tracking-widest text-sm mt-1">{testimonials[currentTestimonial].role}</div>
+              </div>
+            </div>
+
+            {/* Slider Controls */}
+            <div className="flex justify-center gap-12 mt-20">
+              <button
+                onClick={prevTestimonial}
+                className="text-neutral-600 hover:text-white transition-colors text-lg uppercase tracking-widest group"
+              >
+                <span className="inline-block transition-transform group-hover:-translate-x-2">←</span> Previous
+              </button>
+              <button
+                onClick={nextTestimonial}
+                className="text-neutral-600 hover:text-white transition-colors text-lg uppercase tracking-widest group"
+              >
+                Next <span className="inline-block transition-transform group-hover:translate-x-2">→</span>
+              </button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Final CTA - Holographic */}
+      <section className="py-40 relative flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-primary-950"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent-900/20 via-black to-black"></div>
+
+        <div className="container relative z-10 text-center">
+          <h2 className="text-5xl md:text-8xl font-serif font-bold mb-8 text-transparent bg-clip-text bg-gradient-to-br from-white via-neutral-200 to-neutral-600">
+            Ready to Scale?
+          </h2>
+          <p className="text-xl text-neutral-400 max-w-2xl mx-auto mb-16 font-light">
+            Your vision deserves a financial foundation that can support it. Initialize your growth engine today.
+          </p>
+          <Link to="/contact" className="btn btn-primary text-lg px-12 py-5 shadow-[0_0_50px_rgba(212,175,55,0.3)] hover:shadow-[0_0_80px_rgba(212,175,55,0.5)] transition-shadow">
+            Start Your Journey
+          </Link>
         </div>
       </section>
     </div>
